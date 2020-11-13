@@ -1,4 +1,4 @@
-#this file is specifically about connecting to our databse
+#this file is specifically about connecting to our databse and well setup
 import psycopg2
 import os
 
