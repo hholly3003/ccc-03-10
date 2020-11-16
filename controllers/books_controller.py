@@ -1,15 +1,20 @@
 #the CRUD resource for the books
 
 #from database import cursor, connection
+from models.Book import Book
+from main import db
 from flask import Blueprint, request, jsonify
+from schemas.BookSchema import books_schema
 
 #Create the blueprint that is named "books"
 books = Blueprint("books", __name__, url_prefix="/books")
 
 @books.route("/", methods=["GET"])
 def book_index():
-    pass
     #Return all books
+    books = Book.query.all()
+    serialised_data = books_schema.dump(books)
+    return jsonify(serialised_data)
     # sql = "SELECT * FROM books"
     # cursor.execute(sql)
     # books = cursor.fetchall()
