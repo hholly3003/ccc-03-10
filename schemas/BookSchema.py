@@ -2,6 +2,7 @@ from main import ma
 from models.Book import Book
 
 class BookSchema(ma.SQLAlchemyAutoSchema):
+    # To automatically generate it accordingly. This is the way based on the doc
     class Meta:
         model = Book
     
